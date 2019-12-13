@@ -31,14 +31,14 @@ while (( ${#actors[@]} )); do
 		#echo "$actor_name"
 		actor_cache[$actor]="$actor_name"
 		echo "$actor_name" >> bacon.txt
-		movie_step2=$(echo "$movie_step" | grep -E "id=\"actor|\(Short\)|\(TV Movie\)|\(TV Series\)" | grep -Eo "tt.*[0-9]|\(Short\)|\(TV Movie\)|\(TV Series\)" | grep -Eo "tt.*[0-9]|Short|TV Movie|TV Series")
+		movie_step2=$(echo "$movie_step" | grep -E "id=\"actor|\(Short\)|\(TV Movie\)|\(TV Series\)" | grep -Eo "tt.*[0-9]|\(Short\)|\(TV Movie\)|\(TV Series\)" | grep -Eo "tt.*[0-9]|Short|Movie|Series")
 
 		movies=($(echo $movie_step2 | tr "\n" "\n"))
 
 		j=0
 		short_str="Short"
-		tv_movie="TV Movie"
-		tv_series="TV Series"
+		tv_movie="Movie"
+		tv_series="Series"
 		for movie in "${movies[@]}"; do
 			#echo "${movies[j + 1]}"
 			j=$((j + 1))
